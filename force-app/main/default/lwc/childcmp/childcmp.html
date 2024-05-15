@@ -1,0 +1,16 @@
+<template>
+        <lightning-card  title="Hello">
+            <lightning-button label="New" slot="actions"></lightning-button>
+            <p class="slds-p-horizontal_small">Card Body (custom component)</p>
+            <p slot="footer">Card Footer</p>
+
+            <lightning-button label="Add" title="Non-primary action" onclick={handleAdd} class="slds-m-left_x-small"></lightning-button>
+
+            <lightning-button label="Subtract" title="Non-primary action" onclick={handleSub} class="slds-m-left_x-small"></lightning-button>
+
+            <lightning-button value='2' label="Multiply2" title="Non-primary action" onclick={handleMultiply} class="slds-m-left_x-small"></lightning-button>
+
+            <lightning-button value='6' label="Mutiply6" title="Non-primary action" onclick={handleMultiply} class="slds-m-left_x-small"></lightning-button>
+
+        </lightning-card>
+</template>

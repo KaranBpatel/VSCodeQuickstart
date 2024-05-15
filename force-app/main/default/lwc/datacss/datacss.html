@@ -1,0 +1,45 @@
+<template>
+
+<div class="bdv">
+    <div class="dv">
+    <table style="z-index:1;padding-top:30px;width:400px;overflow:visible">
+         <thead>
+                <th>Name</th>
+                <th>Value</th>
+            </thead>
+             <tbody>
+        <template for:each={data} for:item="dt">
+           
+           
+            <tr key={dt.value} >
+                
+                <td >
+                 
+                     <div class="tooltip">{dt.name}
+            <span class="tooltiptext">Tooltip text {dt.value}</span>
+            </div>
+                </td>
+               
+                 <td>
+                    {dt.value}
+                </td>
+            </tr>
+        </template>
+            </tbody>
+
+
+
+    </table>
+
+    <div class="tooltip-text">
+        <span>tooptip text</span>
+    </div>
+
+    <div class="tooltip">Hover over me
+  <span class="tooltiptext">Tooltip text</span>
+</div>
+    </div>
+</div>
+
+<lightning-button variant="base" label="Next" title="titleName" onclick={handleclick}></lightning-button>
+</template>

@@ -1,0 +1,28 @@
+<template>
+    
+    <template for:each={data} for:item="itm">
+        <lightning-icon
+        key={itm.id}
+        icon-name={itm.icon}
+        size="large"
+        alternative-text="Indicates approval"
+    ></lightning-icon>
+    </template>
+    <lightning-datatable 
+                        class="table"
+                        key-field="Id" 
+                        data={data} 
+                        columns={columns}
+                        onrowaction={handleRowAction}
+                        onsave={handlesave}
+                        draft-values={saveDraftValues}
+                        show-row-number-column >
+                        
+       
+    </lightning-datatable>
+ 
+
+    
+
+    
+</template>

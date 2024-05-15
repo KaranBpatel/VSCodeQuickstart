@@ -1,0 +1,51 @@
+<template>
+  <lightning-card  title="Hello">
+    <div class="slds-p-bottom_large slds-p-left_large" style="width:500px">
+        
+    </div>
+
+    <lightning-input label="Subject" type="text" value={recs.Subject} name="subject" onchange={handleSubject} required ></lightning-input>
+  <!--  <lightning-combobox label="Status"  options={status}></lightning-combobox>-->  
+  <lightning-combobox
+  name="progress"
+  label="Status"
+  value={value}
+  placeholder="Select Progress"
+  options={options}
+  onchange={handleStatus} ></lightning-combobox>
+                <!--<lightning-input label="Status" type="text" value={recs.Status} name="status" onchange={handleStatus} ></lightning-input>-->
+                <lightning-combobox
+                name="priority"
+                label="Priority"
+                value={value}
+                placeholder="Select Priority"
+                options={optionsPriority}
+                onchange={handlePriority} ></lightning-combobox>
+
+               <!-- <lightning-input label="Priority" type="text" value={recs.Priority} name="priority" onchange={handlePriority} ></lightning-input>-->
+
+               
+               <lightning-record-picker
+               label="Contact"
+               placeholder="Search Name"
+               object-api-name="Contact"
+               onchange={handleName}
+               
+               >
+           </lightning-record-picker>
+
+             <!--   <lightning-input label="Name" type="text" value={recs.Name} name="nam" onchange={handleName} ></lightning-input> -->
+
+                <lightning-record-picker
+    label="Accounts"
+    placeholder="Search Accounts..."
+    object-api-name="Account"
+    onchange={handleAccName}   
+>
+</lightning-record-picker>
+              <!--  <lightning-input label="RelatedTo" type="text" value={recs.WhatId} name="AccName" onchange={handleAccName} ></lightning-input>-->
+                
+                <lightning-button label="submit" title="Non-primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+
+  </lightning-card>
+</template>

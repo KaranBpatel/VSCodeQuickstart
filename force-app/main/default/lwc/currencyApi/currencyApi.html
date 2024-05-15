@@ -1,0 +1,67 @@
+<template>
+    <div class="slds-m-around_medium">
+        <h1 class="slds-text-heading_small">Input Search Example</h1>
+        <p class="slds-text-body_regular">The following examples show various ways to create an input search component.</p>
+    </div>
+    <div onkeyup={handleKeyUp}>
+        <lightning-input
+            name="enter-search"
+            label="Search when user hits the 'enter' key"
+            type="search"
+        ></lightning-input>
+    </div>
+    <p if:true={queryTerm}>
+        Searched for {queryTerm}!
+    </p>
+<lightning-click-to-dial value="14155555555" record-id="0015h00001djiPfAAI" params="accountSid=xxx, sourceId=xxx, apiVersion=123"></lightning-click-to-dial>  <p>Currency:{cur}</p>
+  <p>Value:{curva}</p>
+
+
+  
+    <lightning-select
+            name="currency"
+            label="Currencies"
+            value={value}
+            options={option}
+            onchange={handleChange}
+            required ></lightning-select>
+
+            <p>Currencies:{lastCur}</p>
+            <p>Rates:{lastRate}</p>
+            
+            <div style="position:absolute;left:40px;top:240px;">
+            <template for:each={lastRate} for:item="rate">
+                <p key={rate}>{rate}</p>
+            </template>
+
+    <template if:true={bool}>
+       
+      <lightning-datatable 
+            key-field="Id" 
+            data={limit}
+            columns={columns1}
+            onrowaction={handleRowAction}
+            onsave={handlesave}
+            draft-values={saveDraftValues}
+            show-row-number-column ></lightning-datatable>
+        
+  </template>
+  <template if:false={bool}>
+
+        <lightning-datatable 
+            key-field="Id" 
+            data={fin}
+            columns={columns1}
+            onrowaction={handleRowAction}
+            onsave={handlesave}
+            draft-values={saveDraftValues}
+            show-row-number-column ></lightning-datatable>
+  </template>
+
+   <lightning-button variant="base" label="Next" title="titleName" onclick={handleNext}></lightning-button>
+
+             <lightning-button variant="base" label="Previous" title="titleName" onclick={handlePre}></lightning-button>
+            </div>
+           
+
+</template>

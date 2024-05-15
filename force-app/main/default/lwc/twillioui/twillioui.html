@@ -1,0 +1,167 @@
+<template>
+    
+    <div class="acx" style="width: 310px;">
+        <lightning-card title="Single Send Setting" style="display:flex;width: 359px;height:760px;" class="slds-card" data-id="abc">
+
+            
+            <ul style="width: 353px;">
+                <div class="single" style="background:rgb(231, 239, 241);display:block;">
+                <li style="height: 90px;">
+                    <div class="slds-p-around_medium lgc-bg">
+
+                        <lightning-input type="text" placeholder="abcd" label="Single Send Name"></lightning-input>
+                        <div>
+                            <lightning-icon icon-name="utility:info" alternative-text="Warning!" title="Warning" size="xx-small" style="position: relative;left: 300px;bottom: 28.9px;">
+                            </lightning-icon>
+                            <div class="slds-popover slds-popover_tooltip  slds-hide" role="tooltip" id="help" style="position: relative;bottom: 55px;left: 195px;width: 100px;">
+                                <div class="slds-popover__body">tooltip text slds1</div>
+                            </div>
+                            </div>   
+                    </div>
+            
+                </li>
+        
+                <li style="height:60px;">
+                    <div class="recipients" style="background:rgb(231, 239, 241);padding-top:5px;">
+                    <div class="slds-p-around_medium lgc-bg">
+                        <lightning-input type="text" label="From sender" value="manan.choraria@eruditeworks.com" style="position: relative;bottom: 12px;" disabled>
+                    </lightning-input>
+                        <div>
+        
+                        </div>
+                        <div>
+                        <lightning-icon icon-name="utility:info" alternative-text="Warning!" title="Warning" size="xx-small" style="position: relative;left: 300px;bottom: 38.7px;">
+                        </lightning-icon>
+                        <div class="slds-popover slds-popover_tooltip  slds-hide" role="tooltip" id="help1" style="position: relative;bottom: 65px;left: 195px;width: 100px;">
+                            <div class="slds-popover__body">tooltip text slds2</div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                   <!-- <select onchange={handleChangeOpt} style="padding-left: 17px;margin-top: 5px;margin-left: 16px;height: 34px;border-radius: 5px;width: 324.9px;">
+        
+                        <option value='abcd' style="font-size:14px">{vr}</option>
+                            
+                        <option value="new" style="font-size:14px">Create a new User</option></li>
+            
+                      </select>-->
+                </li>
+
+                <li style="height: 100px;">
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input
+            type="text"
+            name="subject"
+            id="subject"
+            value={subject}
+            label="Subject"
+            placeholder="Subject..."
+            onchange={handleSubjectChange}></lightning-input>
+            <div>
+                <lightning-icon icon-name="utility:info" alternative-text="Warning!" title="Warning" size="xx-small" style="position: relative;left: 300px;bottom: 28.9px;">
+                </lightning-icon>
+                <div class="slds-popover slds-popover_tooltip slds-hide" role="tooltip" id="help2" style="position: relative;bottom: 55px;left: 195px;width: 100px;">
+                    <div class="slds-popover__body">tooltip text slds3</div>
+                </div>
+                </div> 
+        </div>
+                </li>
+            </div>
+
+            <li style="height: 110px;">
+       
+            <p style="font-size: 14px;position: relative;left: 10px;top: 5px;height: 30px;padding-left:10px;">RECIPIENTS</p>
+            <div class="recipients" style="background:rgb(231, 239, 241);padding-top:5px;">
+            <div class="slds-p-around_medium lgc-bg">
+                <lightning-input type="text" label="Send to" value={selectedContactEmail} style="position: relative;bottom: 12px;">
+            </lightning-input>
+                <div>
+
+                </div>
+                <div>
+                <lightning-icon icon-name="utility:info" alternative-text="Warning!" title="Warning" size="xx-small" style="position: relative;left: 300px;bottom: 38.7px;">
+                </lightning-icon>
+                <div class="slds-popover slds-popover_tooltip  slds-hide" role="tooltip" id="help9" style="position: relative;bottom: 65px;left: 195px;width: 100px;">
+                    <div class="slds-popover__body">tooltip text slds4</div>
+                </div>
+                </div>
+            </div>
+            </div>
+            </li>
+
+            <li style="height: 90px;">
+                       <div class="recipients" style="background:rgb(231, 239, 241);padding-top:5px;">
+                <div class="slds-p-around_medium lgc-bg">
+                    <lightning-select
+                    name="templates"
+                    label="Templates"
+                    value={value}
+                    options={options}
+                    onchange={handleTemplate}
+                    style="position: relative;bottom: 12px;"
+                    required ></lightning-select>
+                </div>
+                </div>
+                </li>
+            
+
+       <li style="height: 80px;">
+        <p style="font-size: 14px;position: relative;top: 5px;height: 30px;background:white; padding-left: 15px;padding-top: 3px;">SCHEDULE</p>
+        <div class="schedule" style="background:rgb(231, 239, 241);height: 78.4px;">
+            <p style="padding-left: 16px;padding-top: 13px;">Schedule</p>
+            <select onchange={handleChange} style="padding-left: 17px;margin-left: 16px;height: 34px;border-radius: 5px;width: 322.9px;">
+        
+                <option value='immediate' style="font-size:14px">Schedule Immediately</option>
+                    
+                <option value="schedule" style="font-size:14px">Schedule on time</option></li>
+    
+              </select>
+    
+            <div>
+
+            </div>
+            <lightning-icon icon-name="utility:info" alternative-text="Warning!" title="Warning" size="xx-small" style="position: relative;left: 317px;bottom: 28.9px;">
+            </lightning-icon>
+            <div class="slds-popover slds-popover_tooltip  slds-hide" role="tooltip" id="help5" style="position: relative;bottom: 65px;left: 216px;width: 100px;">
+                <div class="slds-popover__body">tooltip text slds5</div>
+            </div>
+                </div> 
+                <template if:true={showDateTimePicker}>
+                    <lightning-input type="datetime" label="Select Date Time" onchange={handleDateTimeChange}  min={minDateTime} max={maxDateTimeFormatted} style="height: 70px;background: white;display: flex;padding-left: 17px;width: 356px;padding-right: 50px;">
+                    </lightning-input>
+                </template>
+
+
+           
+                <!--<div style="position:relative;bottom:10px;">
+                   
+                </div>-->
+                <p slot="footer">
+                <lightning-button
+                label="Send"
+                onclick={handleSend}
+                variant="brand"
+                style="margin: 10px;padding-left: 267px;display:flex;position:relative;top:17px;"
+              ></lightning-button>
+                </p>
+            </li>
+        </ul>
+        </lightning-card>
+
+    </div>
+    <div class="body">
+        <!--<lightning-card title={subject} class="slds-card" style="position: relative;width: 500px;left: 360px;bottom: 600px;display: flex;height:264px">
+        <lightning-input-rich-text
+        class="slds-rich-text-editor__textarea"
+          value={richTextValue}
+          
+          style="height:220px;background:rgb(231, 239, 241);"
+        ></lightning-input-rich-text>
+        </lightning-card>-->
+        <lightning-card title={subject} style="position: relative;width: 500px;left: 370px;bottom: 600px;display:block;height:252px">
+            <p style="padding-left: 15px;font-size: 13px;">Enter body</p>
+            <lightning-formatted-text style="font-size:12px;padding:10px;width:800px;" class="slds-text-heading_medium" value={body} ></lightning-formatted-text>
+        </lightning-card>
+    </div>
+   
+</template>

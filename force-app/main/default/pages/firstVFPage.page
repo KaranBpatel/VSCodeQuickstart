@@ -1,0 +1,12 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  This is your new Page
+    Hello
+    <apex:pageMessage severity="confirm" summary="Record save successfully." strength="1"/>  
+    <apex:pageMessage severity="error" summary="No record found." strength="1"/>  
+    <apex:pageMessage severity="info" detail="Name of the user." strength="2"/>  
+    <apex:pageMessage severity="warning" detail="Are you sure you want to save the record?" strength="2"/>  
+ 
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

@@ -1,0 +1,25 @@
+<apex:page Controller="PageMessageController">
+    <apex:form >
+        <apex:pageBlock title="Account/Contact controller">
+            <apex:commandButton action="{!getAccounts}" value="Show Accounts"/>
+            <apex:commandButton action="{!getContacts}" value="Show Contacts"/>
+            
+   
+            <apex:pageBlockSection rendered="{!IF(accounts.size>0,true,false)}">
+                <apex:pageBlockTable value="{!accounts}" var="acc">
+                    <apex:column value="{!acc.Name}"/>
+                    <apex:column value="{!acc.Phone}"/>
+                    <apex:column value="{!acc.Id}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+             <apex:pageBlockSection rendered="{!IF(contacts.size>0,true,false)}">
+                <apex:pageBlockTable value="{!contacts}" var="acc">
+                    <apex:column value="{!acc.Name}"/>
+                    <apex:column value="{!acc.Phone}"/>
+                    <apex:column value="{!acc.Id}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

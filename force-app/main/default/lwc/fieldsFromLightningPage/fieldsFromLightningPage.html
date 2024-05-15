@@ -1,0 +1,91 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Hello" icon-name="standard:account">
+		<!-- <lightning-accordion allow-multiple-sections-open="true"> -->
+			<!-- <lightning-record-edit-form object-api-name={objectApiName} onload={handleLoad}> -->
+				<!-- <template if:true={dataAvailable}> -->
+							
+											<!-- </template> -->
+			<!-- </lightning-record-edit-form> -->
+		<!-- </lightning-accordion> -->
+		<!-- <lightning-record-view-form
+        record-id={recordId}
+        object-api-name="fielUploader__message__c"
+    >
+        <div class="slds-box slds-theme_default">
+            <lightning-output-field field-name="Name"> </lightning-output-field>
+			<lightning-output-field field-name="fielUploader__phone__c"> </lightning-output-field>
+        </div>
+    </lightning-record-view-form> -->
+	<template if:false={editing}>
+	<lightning-record-view-form
+	record-id={recordId}
+	object-api-name="fielUploader__message__c"
+>
+		<lightning-accordion active-section-name="Information" allow-multiple-sections-open="true">
+			
+		<template for:each={finaldata} for:item="section" for:index="idx">
+								<lightning-accordion-section class="slds-m-vertical_none has-header slds-p-bottom_medium" key={section.id} name={section.apiName} label={section.apiName}>
+									
+									<template for:each={section.fields} for:item="fields" for:index="idx">
+										<div key={fields.id}>
+									<label  class="slds-form-element__label slds-text-color_weak slds-text-font_regular customm-border-bottom" key={fields.id}   data-name={fields.id}  >{fields.label}</label><br key={fields.id}>
+									<span>
+									<span if:true={fields.isAvatar}  class="slds-avatar slds-avatar_profile-image-large slds-avatar_circle">
+										<span class="slds-assistive-text">Person name</span>
+									</span>
+										<div class="item">
+									<lightning-output-field
+																				class="slds-form-element__label slds-text-color_weak slds-text-font_regular custom-border-bottom "
+																				variant="label-hidden"
+																				data-id={fields.id}
+																				key={fields.id}
+																				field-name={fields.apiName}>
+																			</lightning-output-field> 
+																			<lightning-button-icon icon-name={fields.iconName} if:true={fields.isEditable} variant="bare" alternative-text="Settings" title="Settings" onclick={handleEdit}></lightning-button-icon>										
+										</div>
+									</span>
+									
+																			<br key={fields.id}>
+										</div>
+																		</template>
+																		</lightning-accordion-section>
+																	</template>
+			
+			
+																</lightning-accordion>
+    </lightning-record-view-form>
+</template>
+<template if:true={editing}>
+
+	<lightning-record-edit-form object-api-name="fielUploader__message__c" record-id={recordId} onsuccess={handleSuccess} onsubmit ={handleSubmit}>
+<lightning-messages>
+</lightning-messages>
+		<lightning-accordion active-section-name="Information" allow-multiple-sections-open="true">
+			
+		<template for:each={finaldata} for:item="section" for:index="idx">
+								<lightning-accordion-section class="slds-m-vertical_none has-header slds-p-bottom_medium" key={section.id} name={section.apiName} label={section.apiName}>
+									
+									<template for:each={section.fields} for:item="fields" for:index="idx">
+										<div key={fields.id}>
+									<!-- <label  class="slds-form-element__label slds-text-color_weak slds-text-font_regular customm-border-bottom" key={fields.id}   data-name={fields.id}  >{fields.apiName}</label><br key={fields.id}> -->
+									
+									<span if:true={fields.isAvatar}  class="slds-avatar slds-avatar_profile-image-large slds-avatar_circle">
+										<span class="slds-assistive-text">Person name</span>
+										</span>
+
+										<lightning-input-field field-name={fields.apiName}></lightning-input-field>
+																			<br key={fields.id}>
+										</div>
+																		</template>
+																		</lightning-accordion-section>
+																	</template>
+			
+			
+																</lightning-accordion>
+						<lightning-button class="slds-m-top_small" type="submit" label="Submit"> </lightning-button><lightning-button class="slds-m-top_small" label="Cancel" onclick={handleCancel}></lightning-button>
+																
+    </lightning-record-edit-form>
+
+</template>
+</lightning-card>
+</template>

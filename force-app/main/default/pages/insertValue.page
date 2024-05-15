@@ -1,0 +1,19 @@
+<apex:page controller="PageMessageController">
+    <apex:form >
+        <apex:commandButton action="{!saveRecord}" value="Save Account" />
+        <apex:pageBlock title="Create Account">
+        <apex:pageBlockSection >
+            <apex:inputText value="{!accName}" label="Name"/>
+            <apex:inputText value="{!accPhone}" label="Phone"/>
+        </apex:pageBlockSection>
+            </apex:pageBlock>
+        
+        <apex:pageBlock title="Create Contact">
+        <apex:pageBlockSection >
+            <apex:inputText value="{!cnName}" label="Name"/>
+            <apex:inputText value="{!cnPhone}" label="Phone"/>
+        </apex:pageBlockSection>
+            </apex:pageBlock>
+    </apex:form>>
+    
+</apex:page>
