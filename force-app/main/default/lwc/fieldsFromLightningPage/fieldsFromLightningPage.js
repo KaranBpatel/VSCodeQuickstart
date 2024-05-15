@@ -39,7 +39,7 @@ export default class FieldsFromLightningPage extends LightningElement {
     }
 
     get isFieldEditable() {
-        // Check if objectInfo and fieldName are available
+        // Check if objectInfo and fieldName are available anc
         return (fieldName) => {
             if (this.objectInfo && this.objectInfo.fields[fieldName]) {
                 return this.objectInfo.fields[fieldName].updateable;
